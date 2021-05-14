@@ -1,7 +1,9 @@
+import kotlin.math.exp
+
 fun eval(expr: Expr): Int =
         when (expr) {
-            is Num -> TODO()
-            is Sum -> TODO()
+            is Num -> expr.value
+            is Sum -> eval(expr.left) + eval(expr.right)
             else -> throw IllegalArgumentException("Unknown expression")
         }
 
